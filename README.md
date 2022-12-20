@@ -3,9 +3,12 @@
 An alternative to browsermob-proxy but process entry with stream.
 
 LightBrowserProxyServer keeps what BrowserMobProxyServer does and its config except har file.
-The proxy modify HarCaptureFilter to support concurrency work and reduce memory usage.
 
-See [BrowserMob Proxy](https://github.com/lightbody/browsermob-proxy) for base use.
+This project modify HarCaptureFilter to support concurrency work and reduce memory usage.
+
+See [BrowserMob Proxy](https://github.com/lightbody/browsermob-proxy) for base use and config.
+
+See [selenium-har-with-lbp](https://github.com/qiwang97/selenium-har-with-lbp) to find lbp example.
 
 ## Install
 
@@ -17,7 +20,9 @@ See [BrowserMob Proxy](https://github.com/lightbody/browsermob-proxy) for base u
     <scope>test</scope>
 </dependency>
 ```
+
 ### Using With Selenium
+
 ```java
     // start the proxy
     LightBrowserProxyServer proxy = new LightBrowserProxyServer();
@@ -35,10 +40,10 @@ See [BrowserMob Proxy](https://github.com/lightbody/browsermob-proxy) for base u
 
     // enable more detailed HAR capture, if desired (see CaptureType for the complete list)
     proxy.enableHarCaptureTypes(CaptureType.REQUEST_CONTENT, CaptureType.RESPONSE_CONTENT);
-    
+
     // subscribe harEntry stream
     // NOTE: subscribe use PublishSubject so that you may loss response before subscribe.
-    
+
 	proxy.$entries.subscribe(
 		entry -> {
 			// receive entry
@@ -57,8 +62,7 @@ See [BrowserMob Proxy](https://github.com/lightbody/browsermob-proxy) for base u
 
     // open google.com
     driver.get("https://www.github.com");
-    
+
     // stop job
     proxy.stop();
 ```
-
