@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>io.github.qiwang97</groupId>
+    <artifactId>light-browser-proxy</artifactId>
+    <packaging>jar</packaging>
+    <name>light-browser-proxy</name>
+    <description>an alternative to browser-proxy but process entry with stream</description>
+    <version>1.0.0-SNAPSHOT</version>
+    <url>https://github.com/qiwang97/light-browser-proxy</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>net.lightbody.bmp</groupId>
+            <artifactId>browsermob-core</artifactId>
+            <version>2.1.5</version>
+        </dependency>
+        <dependency>
+            <groupId>io.reactivex.rxjava3</groupId>
+            <artifactId>rxjava</artifactId>
+            <version>3.1.5</version>
+        </dependency>
+    </dependencies>
+
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:git:git://git@github.com/qiwang97/light-browser-proxy.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/qiwang97/light-browser-proxy.git</developerConnection>
+        <url>https://github.com/qiwang97/light-browser-proxy</url>
+        <tag>HEAD</tag>
+    </scm>
+
+    <developers>
+        <developer>
+            <name>qiwang97</name>
+            <email>wangxiaoqi97@gmail.com</email>
+            <organization>GitHub</organization>
+            <organizationUrl>https://github.com/qiwang97</organizationUrl>
+        </developer>
+    </developers>
+
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub qiwang97 Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/qiwang97/light-browser-proxy</url>
+        </repository>
+    </distributionManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <argLine>-Xmx1g -XX:MaxPermSize=256m</argLine>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
