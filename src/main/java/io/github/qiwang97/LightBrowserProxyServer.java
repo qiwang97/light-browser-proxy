@@ -34,6 +34,9 @@ public class LightBrowserProxyServer extends BrowserMobProxyServer {
 				@Override
 				public HttpFilters filterRequest(HttpRequest originalRequest, ChannelHandlerContext ctx) {
 					Har har = getHar();
+					if (har == null) {
+						log.warn("newHar() should be called before filter added");
+					}
 					if (har != null && !ProxyUtils.isCONNECT(originalRequest)) {
 						return new HarStreamCaptureFilter(originalRequest, ctx, har, getCurrentHarPage() == null ? null : getCurrentHarPage().getId(), getHarCaptureTypes(), LightBrowserProxyServer.this);
 					} else {
